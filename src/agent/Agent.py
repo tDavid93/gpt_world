@@ -1,15 +1,23 @@
-from langchain.llms import OpenAI
-from langchain.agents import initialize_agent, AgentType
-from langchain.tools import StructuredTool
 
-from langchain import LLMMathChain, SerpAPIWrapper
-from langchain.agents import AgentType, initialize_agent
+from langchain import LLMMathChain
 from langchain.chat_models import ChatOpenAI
-from langchain.tools import BaseTool, StructuredTool, Tool, tool
 from langchain.chat_models import ChatOpenAI
+
+from langchain.chat_models import ChatOpenAI
+from langchain.experimental.plan_and_execute import PlanAndExecute, load_agent_executor, load_chat_planner
+from langchain import LLMMathChain
+
+
+from typing import Optional, Type
+
+from langchain.callbacks.manager import (
+    AsyncCallbackManagerForToolRun,
+    CallbackManagerForToolRun,
+)
+
+from langchain.tools import BaseTool
 
 from ..entity import Entity
-import pygame
 
 import math
 
@@ -34,26 +42,19 @@ class Agent(Entity.Entity):
         
         
         self.tools = [
-            Tool.from_function(
-                func=self.get_known_place,
-                name="get_known_place",
-                description="Get all known places in memory"
-            ),
-            Tool.from_function(
-                func=self.move_to_known_place_by_name,
-                name="move_to_known_place_by_name",
-                description="Move to known place by name",
-                
-            ),
-            Tool.from_function(
-                func=self.get_health,
-                name="get_health",
-                description="Get health status"
-                )
+            GetKnownPlace(agent_instance=self)
         ]    
         print(f"surrondings: {self.get_surroundings()}")    
         
-        self.langchain_brain = initialize_agent(self.tools, self.llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=True)
+        self.model = ChatOpenAI(temperature=0)
+
+        self.planner = load_chat_planner(self.model)
+
+        self.executor = load_agent_executor(self.model, self.tools, verbose=True)
+
+        self.langchain_brain = PlanAndExecute(planner=self.planner, executor=self.executor, verbose=True)
+        
+        #self.langchain_brain = initialize_agent(self.tools, self.llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=True)
     
     def interact(self, entity, items, tool):
         pass
@@ -64,28 +65,33 @@ class Agent(Entity.Entity):
             self.place_memory[entity.name] = entity.position
             
     
-    @tool("get_known_place", return_direct=True)
+    
     def get_known_place(self):
         """Get all known places in memory from the town. Can be used to retrive all the possible places to go to.
 
         Returns:
             str: all known places in memory
         """
-        return self.place_memory.keys()
+        #print(f"self.place_memory: {self.place_memory}")
+        places = ""
+        if self.place_memory:
+            for k in self.level.keys():
+                places += f"{k} ,"
+        return places
     
-    @tool("move_to_known_place_by_name", return_direct=True) 
-    def move_to_known_place_by_name(self, str):
+    
+    def move_to_known_place_by_name(self, name:str):
         """Move to known place by name
         
         Returns:
             str: succes or error
         """
-        if self.place_memory.keys().__contains__(str):
-            self.move_to(self.place_memory[str])
+        if self.place_memory.keys().__contains__(name):
+            self.move_to(self.place_memory[name])
             return "succes"
         return "there is no known place with this name"
     
-    @tool("get_health", return_direct=True)
+    
     def get_health(self):
         """ Get health status
         
@@ -111,14 +117,14 @@ class Agent(Entity.Entity):
         self.needs["social"] -= self.need_modif * (24 / (self.time_from_social +1))
         
     def get_surroundings(self):
-        surrondings = []
+        surrondings = {}
         
-        distance = 50
+        distance = 1000
         #print(f"self.leve {self.level}") 
         for enitity in self.level:
             #print(f"enitity: {enitity}")
             if math.hypot(enitity[0] - self.position[0], enitity[1] - self.position[1]) < distance and self.level[enitity].name == "Grass":
-                surrondings.append(self.level[enitity])
+                surrondings[self.level[enitity]] = self.level[(enitity)]
         return surrondings
         
     def calculate_health(self):
@@ -128,14 +134,44 @@ class Agent(Entity.Entity):
         pass
     
     def create_initial_memory(self):
-        return f"You playing a text based rpg in a medival age. You are a {self.name} and you are in a town. You have a {self.inventory} in your inventory. Your only goal is to not die."
+        return f"You playing a text based rpg in a medival age. You are a {self.name} and you are in a town. You have a {self.inventory} in your inventory. Your only goal is to not die. This is your backstory: {self.description}"
     
+    
+    def start_non_blocking_llm_brain(self):
+        self
      
     def update(self):
         print(f"update: {self.name}")
         self.calculate_needs()
         self.calculate_health()
         self.get_surroundings()
-        self.langchain_brain.run(self.create_initial_memory())        
+                
         
         
+        
+
+class GetKnownPlace(BaseTool):
+    name = "get_known_place"
+    description = "Get every known places from memory"
+    agent_memory = ""
+    agent: Type[Agent] = None
+    
+    def __init__(self,agent_instance):
+        super().__init__()
+        print(f"GetKnownPlace {agent_instance.name}")
+        
+        self.agent_memory = agent_instance.get_known_place()
+        self.agent = agent_instance
+    
+    
+    def _run(self, query:str) -> str:
+        """Get all known places in memory from the town. Can be used to retrive all the possible places to go to."""
+        
+        return self.agent_memory   
+        
+    async def _arun(
+        self, query: str, run_manager: Optional[AsyncCallbackManagerForToolRun] = None
+    ) -> str:
+        """Use the tool asynchronously."""
+        raise NotImplementedError("GetKnownPlace does not support async")
+    

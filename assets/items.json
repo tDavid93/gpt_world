@@ -65,7 +65,7 @@
                 "ingredients": {"4" : 5},
                 "skill": "blacksmith",
                 "time": 1,
-                "tool": "anvil",
+                "tool": 6,
                 "place": "smithy",
                 "result": [3]
             },
@@ -99,7 +99,7 @@
                 "ingredients": {"4" : 2},
                 "skill": "blacksmith",
                 "time": 1,
-                "tool": "anvil",
+                "tool": 6,
                 "place": "smithy",
                 "result": [5]
             },

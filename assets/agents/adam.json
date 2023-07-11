@@ -1,18 +1,18 @@
 {
-    "name" : "Adam",
-    "age" : 25,
-    "health" : 100.0,
-    "speed" : 10.0,
-    "description" : "",
+    "name": "Adam",
+    "age": 25,
+    "health": 100.0,
+    "speed": 10.0,
+    "description": "In the heart of a sprawling medieval kingdom, nestled amidst rolling hills and surrounded by lush forests, there existed a quaint little town known as Eldridge. This town, with its cobbled streets and thatched roofs, was home to a diverse community of hardworking people who found solace in its comforting embrace. It was within this idyllic setting that Adam, a resilient townsman, spent his days weaving his own tale of triumph and perseverance. Adam was born into a humble family, the second eldest of five children. His father, Joseph, was a skilled carpenter, while his mother, Sarah, possessed a talent for herbal medicine. Together, they instilled in Adam the values of hard work, compassion, and a deep respect for the land they called home. From a young age, Adam demonstrated an insatiable curiosity and a natural inclination towards craftsmanship. He would often accompany his father to the bustling market square, watching in awe as the skilled artisans showcased their creations. Adam's eyes would light up with wonder at the sight of the gleaming swords, intricately carved wooden furniture, and delicate pottery. Inspired by these artisans, he yearned to develop his own skills and create something that would leave a lasting impact on the town. As Adam grew older, he became an apprentice to the town's blacksmith, a grizzled old man named Thomas. Under Thomas' watchful eye, Adam learned the art of shaping metal, forging weapons, and fashioning tools essential for the town's daily life. The intense heat of the forge became his sanctuary, and the rhythmic pounding of the hammer on the anvil resonated with his own determined spirit. However, fate had a different path in mind for Adam. Just as he was beginning to master his craft, a devastating fire engulfed the town, reducing homes and livelihoods to ashes. In the face of such tragedy, the townsfolk rallied together, determined to rebuild their cherished Eldridge from the ground up. Adam's skills as a blacksmith suddenly became invaluable, as he tirelessly forged nails, hinges, and tools necessary for reconstruction. Through sheer perseverance and unwavering dedication, Adam emerged as a symbol of hope within the community. His workmanship was lauded, and word of his skill spread far beyond the boundaries of Eldridge. Merchants from neighboring towns flocked to him, seeking his finely crafted wares, and nobles from the kingdom's capital commissioned him to create ornate armor and weaponry. Yet, despite his newfound success, Adam never forgot his roots. He remained a steadfast advocate for his fellow townsfolk, using his influence and resources to rebuild Eldridge stronger and more resilient than ever before. He organized community projects, establishing schools to educate the young, and helping the needy with his family's herbal remedies. Over the years, Eldridge prospered under Adam's guiding hand, becoming known as a center of skilled craftsmanship and a beacon of resilience. His legacy as a townsperson who rose above adversity and used his talents for the betterment of his community lived on, inspiring future generations to strive for greatness in the face of challenges. As the years passed, Adam's hands grew weary, but his spirit remained as vibrant as ever. The town of Eldridge flourished, forever indebted to the unwavering dedication and unwavering heart of their beloved townsman, Adam. His name became synonymous with strength, craftsmanship, and the unyielding spirit of the human soul. And as long as Eldridge stood, Adam's legacy would endure, reminding all who passed through its gates of the power of resilience and the beauty that could be wrought from adversity.",
     "inventory": [],
-    "inventory_limit" : 10,
-    "image_src" : "assets/sprites/agents/astronomer_2_0.png",
-    "pos_x" : 10,
-    "pos_y" : 10,
-    "skill":[
+    "inventory_limit": 10,
+    "image_src": "assets/sprites/agents/astronomer_2_0.png",
+    "pos_x": 10,
+    "pos_y": 10,
+    "skill": [
         "blacksmith",
         "farmer",
         "miner",
-        "cook"   
+        "cook"
     ]
 }

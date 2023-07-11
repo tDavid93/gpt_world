@@ -20,6 +20,7 @@ class Entity(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=self.position)
         self.groups = groups
         self.agents = agents
+        self.entity_config = entity_config
         
         
         
