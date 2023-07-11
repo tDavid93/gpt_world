@@ -34,7 +34,7 @@ class GetSurroundings(BaseTool):
         self.agent_name = agent_name
         kl.klog(agent_name, "init", "GetSurroundings tool loaded")
 
-    def _run(self, query: str) -> str:
+    def _run(self) -> str:
         response = call_remote_service(self.agent_name, self.name)
         kl.klog(self.agent_name, "get_surroundings", f"response: {response}")
         return response
