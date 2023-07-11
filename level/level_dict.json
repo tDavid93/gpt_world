@@ -1,0 +1,47 @@
+{
+    "dict":
+    [
+        {
+            "name": "wall",
+            "sign": "w"
+
+        },
+        {
+            "name": "mine",
+            "sign": "m"
+
+        },
+        {
+            "name": "blacksmith",
+            "sign": "s"
+
+        },
+        {
+            "name": "restaurant",
+            "sign": "r"
+        },
+        {
+            "name": "houses",
+            "sign": [h1,h2,h3,h4,h5]
+        },
+        {
+            "name": "well",
+            "sign": "e"
+        },
+        {
+            "name": "bed",
+            "sign": "b"
+        },
+        {
+            "name": "toilet",
+            "sign": "t"
+        },
+        {
+            "name": "oven",
+            "sign": "o"
+        }
+
+
+
+    ]
+}

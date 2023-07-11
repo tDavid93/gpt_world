@@ -1,0 +1,142 @@
+{
+    "items":[
+        {
+            "id":0,
+            "name":"bread",
+            "price":1.99,
+            "weight":1.0,
+            "type":["food"],
+            "description":"Reduce your hunger by 10%.",
+            "recipe" : {
+                "ingredients":{"1" : 1 ,"2" : 1},
+                
+                "skill": "cook",
+                "time": 5,
+                "tool": [],
+                "place": "oven",
+                "result": [0]
+            },
+            "durability": 100
+        },
+        {
+            "id":1,
+            "name": "flour",
+            "price": 0.99,
+            "weight": 1.0,
+            "type": ["ingredient"],
+            "description": "A bag of flour. Needed for baking bread.",
+            "recipe": {
+                "ingredients": {"2":1},
+                
+                "skill": "farmer",
+                "time": 10,
+                "tool": [3],
+                "place": "farm",
+                "result": [1]
+            },
+            "durability": 100
+        },
+        {
+            "id":2,
+            "name": "water",
+            "price": 0.50,
+            "weight": 1.0,
+            "type": ["ingredient", "drink"],
+            "description": "A bottle of water. Needed for many recipes",
+            "recipe": {
+                "ingredients": [],
+                "amounts": [],
+                "skill": "default",
+                "time": 1,
+                "tool": 5,
+               "place": "well",
+               "result": [2]
+            },
+            "durability": 100
+        },
+        {
+            "id":3,
+            "name": "farming tool",
+            "price": 5.00,
+            "weight": 5.0,
+            "type": ["tool"],
+            "description": "A farming tool. Needed for farming.",
+            "recipe": {
+                "ingredients": {"4" : 5},
+                "skill": "blacksmith",
+                "time": 1,
+                "tool": "anvil",
+                "place": "smithy",
+                "result": [3]
+            },
+            "durability": 100
+        },
+        {
+            "id":4,
+            "name": "iron",
+            "price": 10.00,
+            "weight": 5.0,
+            "type": ["ingredient"],
+            "description": "A bar of iron. Needed for many recipes.",
+            "recipe": {
+                "ingredients": {},
+                "skill": "miner",
+                "time": 1,
+                "tool": 6,
+                "place": "mine",
+                "result": [4]
+            },
+            "durability": 100
+        },
+        {
+            "id":5,
+            "name": "bucket",
+            "price": 1.00,
+            "weight": 1.0,
+            "type": ["tool"],
+            "description": "A bucket. Needed for many recipes.",
+            "recipe": {
+                "ingredients": {"4" : 2},
+                "skill": "blacksmith",
+                "time": 1,
+                "tool": "anvil",
+                "place": "smithy",
+                "result": [5]
+            },
+            "durability": 100
+        },
+        {
+            "id":6,
+            "name": "pickaxe",
+            "price": 5.00,
+            "weight": 5.0,
+            "type": ["tool"],
+            "description": "A pickaxe. Needed for mining.",
+            "recipe": {
+                "ingredients": {"4" : 10},
+                "skill": "blacksmith",
+                "time": 1,
+                "tool": "anvil",
+                "place": "smithy",
+                "result": [6]
+            },
+            "durability": 100
+        },
+        {
+            "id":7,
+            "name": "anvil",
+            "price": 100.00,
+            "weight": 100.0,
+            "type": ["tool"],
+            "description": "An anvil. Needed for many recipes.",
+            "recipe": {
+                "ingredients": {"4" : 100},
+                "skill": "blacksmith",
+                "time": 20,
+                "tool": 7,
+                "place": "smithy",
+                "result": [7]
+            }
+        }
+    ]
+}
