@@ -7,8 +7,8 @@
     "inventory": [],
     "inventory_limit": 10,
     "image_src": "assets/sprites/agents/astronomer_2_0.png",
-    "pos_x": 10,
-    "pos_y": 10,
+    "pos_x": 28,
+    "pos_y": 24,
     "skill": [
         "blacksmith",
         "farmer",

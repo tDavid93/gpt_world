@@ -1,8 +1,11 @@
-import pygame
-import sys
-from src import level
 import csv
+import sys
+
+import pygame
+
+from src import level
 from src.settings import *
+
 
 class Game:
     def __init__(self):

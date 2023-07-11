@@ -6,5 +6,6 @@
     "image_src" : "assets/sprites/indoor.png",
     "sign" : "h",
     "health" : 100, 
-    "speed" : 0
+    "speed" : 0,
+    "walkable" : true
 }

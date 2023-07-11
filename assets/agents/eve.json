@@ -7,8 +7,8 @@
     "inventory": [],
     "inventory_limit" : 10,
     "image_src" : "assets/sprites/agents/babies_mother_2_0.png",
-    "pos_x" : 13,
-    "pos_y" : 10,
+    "pos_x" : 28,
+    "pos_y" : 29,
     "skill":[
         "farmer"
    
