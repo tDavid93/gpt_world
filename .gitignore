@@ -4,3 +4,7 @@ lib
 lib64
 activate_openai
 tile*.png
+__MACOSX
+__pycache__
+*.ipynb
+
