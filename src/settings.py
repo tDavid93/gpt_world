@@ -1,5 +1,5 @@
 # game setup
 WIDTH    = 1280	
-HEIGTH   = 720
+HEIGTH   = 1000
 FPS      = 60
-TILESIZE = 64
+TILESIZE = 16

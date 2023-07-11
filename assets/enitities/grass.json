@@ -1,0 +1,10 @@
+{
+    "name" : "Grass",
+    "description" : "A patch of grass",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/grass.png",
+    "sign" : "g",
+    "health" : 100, 
+    "speed" : 0
+}

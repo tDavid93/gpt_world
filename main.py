@@ -1,14 +1,15 @@
 import pygame
 import sys
 from src import level
-import pandas as pd 
+import csv
 from src.settings import *
 
 class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((800, 600))
-        self.map = pd.read_csv("level/map.csv")
+        file = open("level/map.csv")
+        self.map = list(csv.reader(file))
         self.clock = pygame.time.Clock()
         self.level = level.Level(self.map)
     

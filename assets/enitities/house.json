@@ -1,0 +1,10 @@
+{
+    "name" : "House",
+    "description" : "This is a house of someone. This is a default description.",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/indoor.png",
+    "sign" : "h",
+    "health" : 100, 
+    "speed" : 0
+}

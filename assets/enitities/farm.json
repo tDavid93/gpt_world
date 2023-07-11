@@ -1,0 +1,10 @@
+{
+    "name" : "Farm Field",
+    "description" : "A field of wheat. You can harvest it for wheat",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/farm.png",
+    "sign" : "f",
+    "health" : 100, 
+    "speed" : 0
+}

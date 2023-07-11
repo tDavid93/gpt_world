@@ -1,0 +1,10 @@
+{
+    "name" : "Restaurant",
+    "description" : "You can find the cook here. He will give you food in exchange",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/indoor.png",
+    "sign" : "r",
+    "health" : 100, 
+    "speed" : 0
+}

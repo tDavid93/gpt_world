@@ -8,8 +8,8 @@ import math
 
 
 class Agent(Entity.Entity):
-    def __init__(self, position, name, description, inventory, inventory_limit, image_src, groups, health, speed ):
-        self.super().__init__(self, position, name, description, inventory, inventory_limit, image_src, groups, health, speed)
+    def __init__(self, agent_config, groups):
+        self.super().__init__(self, agent_config, groups)
         self.needs = {
             "hunger": 1.0,
             "thirst": 1.0,

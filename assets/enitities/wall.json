@@ -1,0 +1,10 @@
+{
+    "name" : "Wall",
+    "description" : "A wall. You can't walk through it.",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/wall.png",
+    "sign" : "w",
+    "health" : 100, 
+    "speed" : 0
+}

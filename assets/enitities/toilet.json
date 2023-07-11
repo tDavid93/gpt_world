@@ -1,0 +1,10 @@
+{
+    "name" : "Toilet",
+    "description" : "This is a toilet. You can use it to poop.",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/toilet.png",
+    "sign" : "t",
+    "health" : 100, 
+    "speed" : 0
+}

@@ -1,0 +1,10 @@
+{
+    "name" : "Mine",
+    "description" : "A mine. You can obtain iron from it with a pickaxe.",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/mine.png",
+    "sign" : "m",
+    "health" : 100, 
+    "speed" : 0
+}

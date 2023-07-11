@@ -1,0 +1,10 @@
+{
+    "name" : "Well",
+    "description" : "A well. You can obtain water with bucket. You can drink water from bucket",
+    "inventory" : [],
+    "inventory_limit" : 0,
+    "image_src" : "assets/sprites/well.png",
+    "sign" : "e",
+    "health" : 100, 
+    "speed" : 0
+}

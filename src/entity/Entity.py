@@ -3,20 +3,20 @@ import math
 import pygame
 
 class Entity(pygame.sprite.Sprite):
-    def __init__(self, position, name, description, inventory, inventory_limit, image_src, groups, health = 100, speed = 0.0):
+    def __init__(self, entity_config, groups):
         super().__init__(groups)
-        self.position = position
-        self.name = name
-        self.description = description
-        self.health = health
-        self.speed = 0.0
+        self.position = entity_config["position"]
+        self.name = entity_config["name"]
+        self.description = entity_config["description"]
+        self.health = entity_config["health"]
+        self.speed = entity_config["speed"]
         self.tasklist = {}
-        self.inventory = inventory
-        self.inventory_limit = inventory_limit
+        self.inventory = entity_config["inventory"]
+        self.inventory_limit = entity_config["inventory_limit"]
         
-        self.image = pygame.image.load(image_src)
+        self.image = pygame.image.load(entity_config["image_src"])
         
-        self.rect = self.image.get_rect(topleft=position)
+        self.rect = self.image.get_rect(topleft=self.position)
         self.groups = groups
         
     def get_distance(self, entity):
