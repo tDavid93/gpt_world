@@ -17,10 +17,8 @@ class Level:
         self.map = map
         self.entities = {} 
         
-        self.agents_config = []
-        self.agents = [
-            
-        ]
+        self.agents_config = self.entity_config_loader("assets/agents")
+        self.agents = []
         
         self.entity_configs = self.entity_config_loader("assets/enitities")
         
@@ -36,8 +34,12 @@ class Level:
                     #print(f"config : {self.entity_configs}")
                     l_config = self.entity_configs[col[0]]
                     l_config["position"] = (x,y)
-                    self.entities[x,y] = Entity.Entity(l_config , groups = [self.visible_sprites, self.obstacle_sprites])
-                
+                    self.entities[x,y] = Entity.Entity(l_config , agents= self.agents, groups = [self.visible_sprites, self.obstacle_sprites], level = self.entities)
+        
+        for agent in self.agents_config:
+            l_config = self.agents_config[agent]
+            l_config["position"] = (l_config["pos_x"] * TILESIZE, l_config["pos_y"] *TILESIZE)
+            self.agents.append(Agent.Agent(l_config, level = self.entities, agents = self.agents, groups = [self.visible_sprites]))
             
     def entity_config_loader(self, folder):
         #load all the agents in the folder
@@ -47,12 +49,20 @@ class Level:
                 if file.endswith(".json"):
                     with open(folder + "/" + file) as f:
                         data = json.load(f)
-                        print(f"data: {data}")
-                        configs[data["sign"]] = data
-        #print(configs)
+                        #print(f"data: {data}")
+                        try:
+                            configs[data["sign"]] = data
+
+                        except KeyError:
+                            configs[data["name"]] = data    
+        print (f"configs: {configs}")
+        
         return configs
+    def update(self):
+        self.visible_sprites.update()
+        self.obstacle_sprites.update()
                                 
     def run(self):
-        
+        self.update()
         
         self.visible_sprites.draw(self.display_surface)
